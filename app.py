@@ -40,7 +40,7 @@ class MP3Downloader:
         log_dir = "logs"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
-        log_filename = datetime.now().strftime("%Y-%m-%d") + ".log"
+        log_filename = datetime.now().strftime("%Y-%m-%d") + "-download_music.log"
         log_filepath = os.path.join(log_dir, log_filename)
         logging.basicConfig(filename=log_filepath, level=logging.INFO, format='%(asctime)s - %(message)s')
 
@@ -81,7 +81,7 @@ class MP3Downloader:
             new_file = base + '.mp3'
             self.convert_to_mp3(output_file, new_file, bitrate)
             os.remove(output_file)  # 删除原始文件
-            self.log_message(f"Download complete for: {url}")
+            self.log_message(f"Download complete for: {url}, saved as: {new_file}")
         except Exception as e:
             messagebox.showerror("Error", str(e))
             self.log_message(f"Error downloading {url}: {str(e)}")
