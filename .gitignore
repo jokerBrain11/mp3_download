@@ -1,0 +1,8 @@
+# Default Folders
+./download
+./logs
+
+# Downloading the data
+*.mp3
+*.mp4
+*.log
